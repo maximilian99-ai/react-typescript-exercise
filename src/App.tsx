@@ -8,7 +8,7 @@ const App: React.FC = () => {
 
   const todoAddHandler = (text: string) => {
     setTodos(prevTodos => [
-      ...prevTodos, 
+      ...prevTodos,
       { id: Math.random().toString(), text: text }
     ]);
   };
@@ -18,12 +18,12 @@ const App: React.FC = () => {
       return prevTodos.filter(todo => todo.id !== todoId);
     });
   };
-  
+
   return (
     <div className="App">
       {/* todos를 추가하는 컴포넌트 */}
-      <NewTodo onAddTodo={todoAddHandler} />
-      <TodoList items={todos} onDeleteTodo={todoDeleteHandler} />
+      <NewTodo todoAddHandler={todoAddHandler} />
+      <TodoList items={todos} todoDeleteHandler={todoDeleteHandler} />
     </div>
   );
 };

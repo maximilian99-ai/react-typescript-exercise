@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import './NewTodo.css';
 
 type NewTodoProps = {
-  onAddTodo: (todoText: string) => void;
+  todoAddHandler: (todoText: string) => void;
 };
 
 const NewTodo: React.FC<NewTodoProps> = props => {
@@ -11,7 +11,7 @@ const NewTodo: React.FC<NewTodoProps> = props => {
   const todoSubmitHandler = (event: React.FormEvent) => {
     event.preventDefault();
     const enteredText = textInputRef.current!.value;
-    props.onAddTodo(enteredText);
+    props.todoAddHandler(enteredText);
   };
 
   return (
